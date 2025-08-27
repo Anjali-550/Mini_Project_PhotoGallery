@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.main_box{
+    background: url(camera.jpg);
+
+    /* To give div full page height */
+    /* height: 100%;   */
+    /* Above one Didn't work*/
+    
+    height: 100vh;
+    /* Viewport Height is used to cover pure ke pure viewport  ki height  */
+
+    background-size: cover;
+}
+
+.btn_one i{
+    color: white;
+    font-size:30px;
+    font-weight: 700;
+    position: absolute; /*Since parent element(main_box) has not any specified position so btn_one will take position according to the whole page*/
+    left: 16px;
+    line-height: 60px;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.sidebar_menu{
+    position: fixed;
+    /* To remove the elements from the screen...the element still exists but not visible */
+    left: -350px;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(2555, 255, 255, 0.1);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s linear;
+}
+
+.sidebar_menu .logo{
+    position: absolute;
+    width: 100%;
+    line-height: 60px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+    height: 60px;
+}
+
+.sidebar_menu .logo a{
+    position: absolute;
+    left: 60px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sidebar_menu .btn_two i{
+    color: grey;
+    font-size: 20px;
+    line-height: 60px;
+    position: absolute;
+    left: 260px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.1s linear;
+}
+
+.sidebar_menu .menu{
+    position: absolute;
+    color: white;
+    width: 100%;
+    top: 80px;
+}
+.sidebar_menu .menu li{
+    margin-top: 6px;
+    padding: 10px 20px;
+}
+
+.sidebar_menu .menu i,a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar_menu .menu i{
+    padding-right: 8px;
+}
+
+.sidebar_menu .social_media {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+}
+
+.sidebar_menu .social_media i{
+    padding: 0 5px;
+    color: white;
+    opacity: 0.5;
+}
+
+#check{
+    display: none; /*Kisi bhi element ko screen se gayab krne ke liye*/
+}
+
+.sidebar_menu .menu li:hover{
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.btn_one:hover i{
+    font-size: 40px;
+}
+.btn_two:hover i{
+    font-size: 30px;
+}
+
+.sidebar_menu .social_media i:hover{
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+
+/* ~ is a general sibling selecetor */
+#check:checked ~ .sidebar_menu{
+    left: 0;
+}
+/* To yahan pe kya hua...sidebar menu jo h wo checkbox ka label hai to jaise hi uspe click krte hai checkbox check ho jata hai or jaise hi checked hua waise hi sidebar menu -350px se 0px pe aa jayega and similarly for btn_two uspe hmlog click krte hai wo uncheck ho jata hai or sidebar menu hat jata hai  */
+
+#check:checked ~ .btn_one i{
+    opacity: 0;
+}
+
+#check:checked ~ .sidebar_menu .btn_two i {
+   opacity: 1;
+}
